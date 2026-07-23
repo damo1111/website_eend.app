@@ -1,7 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useRef, useState } from "react";
+import {
+  AnimatePresence,
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import type { App } from "@/data/apps";
 import { Tag } from "./Tag";
 import { cn } from "@/lib/utils";
@@ -29,24 +36,52 @@ function StatusDot({ status }: { status: App["status"] }) {
 
 export default function AppCard({ app }: { app: App }) {
   const [hovered, setHovered] = useState(false);
+  const ref = useRef<HTMLAnchorElement>(null);
 
   const hasImage = Boolean(app.screengrab);
 
+  // Normalised cursor position within the card (0–1 on each axis).
+  const mx = useMotionValue(0.5);
+  const my = useMotionValue(0.5);
+
+  const springCfg = { stiffness: 150, damping: 18, mass: 0.4 };
+  const rotateX = useSpring(useTransform(my, [0, 1], [7, -7]), springCfg);
+  const rotateY = useSpring(useTransform(mx, [0, 1], [-7, 7]), springCfg);
+
+  const glowX = useTransform(mx, (v) => `${v * 100}%`);
+  const glowY = useTransform(my, (v) => `${v * 100}%`);
+  const glow = useMotionTemplate`radial-gradient(240px circle at ${glowX} ${glowY}, ${app.accent}40, transparent 68%)`;
+
+  const handleMove = (e: React.MouseEvent) => {
+    const el = ref.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    mx.set((e.clientX - r.left) / r.width);
+    my.set((e.clientY - r.top) / r.height);
+  };
+
+  const reset = () => {
+    mx.set(0.5);
+    my.set(0.5);
+    setHovered(false);
+  };
+
   return (
-    <a
+    <motion.a
+      ref={ref}
       href={app.url}
       target="_blank"
       rel="noopener noreferrer"
+      onMouseMove={handleMove}
       onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseLeave={reset}
       onFocus={() => setHovered(true)}
       onBlur={() => setHovered(false)}
-      className={cn(
-        "group relative flex flex-col justify-end overflow-hidden rounded border border-border bg-surface p-5 transition-colors duration-300 hover:border-border-light",
-        SIZE_CLASSES[app.size],
-      )}
-      style={
-        hasImage
+      style={{
+        rotateX,
+        rotateY,
+        transformPerspective: 1000,
+        ...(hasImage
           ? {
               backgroundImage: `url(${app.screengrab})`,
               backgroundSize: "cover",
@@ -54,8 +89,12 @@ export default function AppCard({ app }: { app: App }) {
             }
           : {
               backgroundImage: `linear-gradient(160deg, ${app.accent}22 0%, #121C15 65%)`,
-            }
-      }
+            }),
+      }}
+      className={cn(
+        "group relative flex flex-col justify-end overflow-hidden rounded border border-border bg-surface p-5 transition-colors duration-300 will-change-transform hover:border-border-light",
+        SIZE_CLASSES[app.size],
+      )}
     >
       {/* Legibility gradient over screengrabs */}
       {hasImage && (
@@ -68,6 +107,13 @@ export default function AppCard({ app }: { app: App }) {
           }}
         />
       )}
+
+      {/* Accent glow that tracks the cursor */}
+      <motion.div
+        aria-hidden
+        style={{ background: glow }}
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      />
 
       {/* Mnemo attribution */}
       {app.studio === "Mnemo" && (
@@ -113,6 +159,6 @@ export default function AppCard({ app }: { app: App }) {
           </motion.div>
         )}
       </AnimatePresence>
-    </a>
+    </motion.a>
   );
 }

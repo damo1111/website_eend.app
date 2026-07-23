@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { DuckMarkLarge } from "@/components/ui/DuckMark";
+import { PondCanvas } from "@/components/ui/PondCanvas";
 
 const EASE = [0.25, 0.1, 0.25, 1.0] as const;
 
@@ -17,9 +18,23 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-screen flex-col justify-center px-5 md:px-8"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden px-5 md:px-8"
     >
-      <div className="mx-auto w-full max-w-5xl">
+      {/* Interactive pond — ripples react to cursor + click */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <PondCanvas />
+      </div>
+      {/* Legibility vignette: darkens toward the left where the copy sits */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background:
+            "radial-gradient(120% 90% at 20% 45%, rgba(12,20,16,0.92) 0%, rgba(12,20,16,0.72) 40%, rgba(12,20,16,0.35) 100%)",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto w-full max-w-5xl">
         {/* Duck mark — floats gently */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -82,7 +97,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.7, delay: 1.1, ease: EASE }}
-        className="absolute bottom-6 right-6 font-mono text-[10px] text-muted"
+        className="absolute bottom-6 right-6 z-10 font-mono text-[10px] text-muted"
       >
         Melbourne · 2026
       </motion.span>
