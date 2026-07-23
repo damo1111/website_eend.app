@@ -46,11 +46,6 @@ export function About() {
               Tesco, and Amazon.
             </p>
             <p>
-              eend.app is where I build for myself. AI-first apps, real
-              problems, no committee. Built in Claude Code and deployed on
-              Vercel.
-            </p>
-            <p>
               Alongside eend, I run Mnemo — an ambient AI startup — and NOT THAT
               CVNVRD, a directional fashion label. The duck connects them all.
             </p>
