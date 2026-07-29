@@ -56,6 +56,9 @@ export default function AppCard({
         >
           <PhoneFrame>
             {video ? (
+              // Enlarge + bottom-anchor the recording so the browser URL/status
+              // bar at the top is cropped out — reads as a native app, with the
+              // app's own bottom tab bar kept in frame.
               // eslint-disable-next-line jsx-a11y/media-has-caption
               <video
                 src={video}
@@ -66,7 +69,7 @@ export default function AppCard({
                 playsInline
                 preload="metadata"
                 aria-label={`${name} app preview`}
-                className="h-[236px] w-[122px] object-cover object-top"
+                className="h-[236px] w-[122px] origin-bottom scale-[1.14] object-cover object-bottom"
               />
             ) : (
               <div className="h-[236px] w-[122px] bg-surface" />
