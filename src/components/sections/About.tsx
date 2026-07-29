@@ -1,32 +1,15 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { DuckMarkLarge } from "@/components/ui/DuckMark";
-
-const EASE = [0.25, 0.1, 0.25, 1.0] as const;
 
 export function About() {
   return (
     <section id="about" className="px-5 py-24 md:px-8 md:py-32">
       <div className="mx-auto grid w-full max-w-5xl grid-cols-1 items-start gap-12 md:grid-cols-[auto_1fr] md:gap-16">
         {/* Decorative duck mark */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: EASE }}
-          className="flex justify-center md:justify-start"
-        >
+        <div className="reveal reveal-on-scroll flex justify-center md:justify-start">
           <DuckMarkLarge size={96} colour="#6B8070" />
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
-          className="text-center md:text-left"
-        >
+        <div className="reveal reveal-on-scroll text-center md:text-left">
           <p className="font-mono text-[10px] tracking-[0.2em] text-duck">
             THE BUILDER
           </p>
@@ -36,7 +19,7 @@ export function About() {
             <br />
             Twenty years.
             <br />
-            Five apps and counting.
+            Three apps and counting.
           </h2>
 
           <div className="mx-auto mt-6 max-w-[560px] space-y-4 font-body text-base leading-[1.8] text-muted md:mx-0">
@@ -69,7 +52,7 @@ export function About() {
               → Mnemo at mnemo.systems
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

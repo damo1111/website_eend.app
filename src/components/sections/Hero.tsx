@@ -1,26 +1,9 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { DuckMarkLarge } from "@/components/ui/DuckMark";
 import { Spotlight } from "@/components/ui/Spotlight";
 import { Marquee } from "@/components/ui/Marquee";
 
 const MARQUEE_TEXT =
-  "Ministry of Susan — Eldercare AI · Davanity — Health AI · Pond Hopping — Travel AI · Moritzwith — Finance AI · Nous — Trading AI · eend is Dutch for duck · ";
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
+  "Pond Hopping — Travel AI · DuckWorth — Finance AI · Nous — Trading AI · eend is Dutch for duck · ";
 
 export function Hero() {
   return (
@@ -30,42 +13,37 @@ export function Hero() {
     >
       <Spotlight className="-top-40 left-0 md:-top-20 md:left-40" />
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="relative z-10 mx-auto w-full max-w-5xl px-5 py-32 md:px-8"
-      >
-        <motion.div variants={item} className="mb-8">
+      <div className="relative z-10 mx-auto w-full max-w-5xl px-5 py-32 md:px-8">
+        <div className="reveal mb-8" style={{ animationDelay: "0.05s" }}>
           <DuckMarkLarge size={120} className="animate-float" />
-        </motion.div>
+        </div>
 
-        <motion.p
-          variants={item}
-          className="font-mono text-[11px] uppercase tracking-[0.2em] text-duck"
+        <p
+          className="reveal font-mono text-[11px] uppercase tracking-[0.2em] text-duck"
+          style={{ animationDelay: "0.15s" }}
         >
           Indie AI product studio · Melbourne
-        </motion.p>
+        </p>
 
-        <motion.h1
-          variants={item}
-          className="mt-6 font-display text-[64px] font-bold leading-[0.9] text-text md:text-[104px]"
+        <h1
+          className="reveal mt-6 font-display text-[64px] font-bold leading-[0.9] text-text md:text-[104px]"
+          style={{ animationDelay: "0.25s" }}
         >
           eend.
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          variants={item}
-          className="mt-6 max-w-[480px] font-body text-lg leading-[1.7] text-muted"
+        <p
+          className="reveal mt-6 max-w-[480px] font-body text-lg leading-[1.7] text-muted"
+          style={{ animationDelay: "0.35s" }}
         >
-          Five apps. Five problems that bothered me. AI-first, built alone,
+          Three apps. Three problems that bothered me. AI-first, built alone,
           shipped fast. <span className="text-text">eend</span> is Dutch for
           duck.
-        </motion.p>
+        </p>
 
-        <motion.div
-          variants={item}
-          className="mt-10 flex flex-wrap items-center gap-6"
+        <div
+          className="reveal mt-10 flex flex-wrap items-center gap-6"
+          style={{ animationDelay: "0.45s" }}
         >
           <a
             href="#apps"
@@ -82,8 +60,8 @@ export function Hero() {
           >
             david@moritznet.com
           </a>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       <div className="absolute bottom-8 left-0 z-10 w-full">
         <Marquee text={MARQUEE_TEXT} />
