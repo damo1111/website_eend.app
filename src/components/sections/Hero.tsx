@@ -2,105 +2,92 @@
 
 import { motion } from "framer-motion";
 import { DuckMarkLarge } from "@/components/ui/DuckMark";
-import { PondCanvas } from "@/components/ui/PondCanvas";
+import { Spotlight } from "@/components/ui/Spotlight";
+import { Marquee } from "@/components/ui/Marquee";
 
-const EASE = [0.25, 0.1, 0.25, 1.0] as const;
+const MARQUEE_TEXT =
+  "Ministry of Susan — Eldercare AI · Davanity — Health AI · Pond Hopping — Travel AI · Moritzwith — Finance AI · Nous — Trading AI · eend is Dutch for duck · ";
 
-function fadeUp(delay: number) {
-  return {
-    initial: { opacity: 0, y: 16 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.7, delay, ease: EASE },
-  };
-}
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
 
 export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden px-5 md:px-8"
+      className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden"
     >
-      {/* Interactive pond — ripples react to cursor + click */}
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <PondCanvas />
-      </div>
-      {/* Legibility vignette: darkens toward the left where the copy sits */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0"
-        style={{
-          background:
-            "radial-gradient(120% 90% at 20% 45%, rgba(12,20,16,0.92) 0%, rgba(12,20,16,0.72) 40%, rgba(12,20,16,0.35) 100%)",
-        }}
-      />
+      <Spotlight className="-top-40 left-0 md:-top-20 md:left-40" />
 
-      <div className="relative z-10 mx-auto w-full max-w-5xl">
-        {/* Duck mark — floats gently */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, ease: EASE }}
-          className="mb-8"
-        >
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="relative z-10 mx-auto w-full max-w-5xl px-5 py-32 md:px-8"
+      >
+        <motion.div variants={item} className="mb-8">
           <DuckMarkLarge size={120} className="animate-float" />
         </motion.div>
 
-        {/* Studio name */}
+        <motion.p
+          variants={item}
+          className="font-mono text-[11px] uppercase tracking-[0.2em] text-duck"
+        >
+          Indie AI product studio · Melbourne
+        </motion.p>
+
         <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
-          className="font-display text-[44px] font-bold leading-none text-text md:text-7xl"
+          variants={item}
+          className="mt-6 font-display text-[64px] font-bold leading-[0.9] text-text md:text-[104px]"
         >
           eend.
         </motion.h1>
 
-        {/* Tagline */}
         <motion.p
-          {...fadeUp(0.5)}
-          className="mt-4 font-body text-xl italic text-muted"
+          variants={item}
+          className="mt-6 max-w-[480px] font-body text-lg leading-[1.7] text-muted"
         >
-          An indie AI product studio.
+          Five apps. Five problems that bothered me. AI-first, built alone,
+          shipped fast. <span className="text-text">eend</span> is Dutch for
+          duck.
         </motion.p>
 
-        {/* Manifesto */}
-        <motion.p
-          {...fadeUp(0.7)}
-          className="mt-6 max-w-[480px] font-body text-base leading-[1.7] text-muted"
-        >
-          Five apps. Five problems that bothered me.
-          <br />
-          Built alone, in Claude Code, shipping on Vercel.
-          <br />
-          eend is Dutch for duck.
-        </motion.p>
-
-        {/* Links */}
         <motion.div
-          {...fadeUp(0.9)}
-          className="mt-8 flex flex-wrap items-center gap-8 font-mono text-xs text-duck"
+          variants={item}
+          className="mt-10 flex flex-wrap items-center gap-6"
         >
-          <a href="#apps" className="transition-opacity hover:opacity-70">
-            See the apps ↓
+          <a
+            href="#apps"
+            className="group inline-flex items-center gap-2 rounded border border-border px-6 py-3 font-mono text-sm text-text transition-colors duration-300 hover:border-duck hover:text-duck"
+          >
+            See the apps
+            <span className="transition-transform duration-300 group-hover:translate-y-0.5">
+              ↓
+            </span>
           </a>
           <a
             href="mailto:david@moritznet.com"
-            className="transition-opacity hover:opacity-70"
+            className="font-mono text-sm text-muted underline-offset-4 transition-colors duration-300 hover:text-duck hover:underline"
           >
             david@moritznet.com
           </a>
         </motion.div>
-      </div>
+      </motion.div>
 
-      {/* Corner locator */}
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.7, delay: 1.1, ease: EASE }}
-        className="absolute bottom-6 right-6 z-10 font-mono text-[10px] text-muted"
-      >
-        Melbourne · 2026
-      </motion.span>
+      <div className="absolute bottom-8 left-0 z-10 w-full">
+        <Marquee text={MARQUEE_TEXT} />
+      </div>
     </section>
   );
 }
