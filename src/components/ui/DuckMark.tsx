@@ -4,11 +4,13 @@ interface DuckMarkProps {
   className?: string;
 }
 
+const DUCK_PATH =
+  "M6 33 C5 27 10 26 14 28 C22 21 33 15 44 17 C46 11 55 10 58 16 C60 20 57 24 52 24 L62 24.5 L61 27 L52 27.5 C51 32 47 35 43 35 C46 41 40 44 29 44 C17 44 8 41 6 36 Z";
+
 /**
- * Minimal geometric duck logo mark — side profile facing right.
- * Body: horizontal oval. Head: circle overlapping top-right of body.
- * Beak: right-pointing triangle. Tail: upward flick at the left.
- * Eye: small darker dot. No strokes, all filled.
+ * The eend mark — a minimal duck floating in side profile, facing right.
+ * A single confident silhouette: plump body, rounded head, small bill, one
+ * eye. Clean and legible from 24px up.
  */
 export function DuckMark({
   size = 48,
@@ -19,28 +21,20 @@ export function DuckMark({
     <svg
       width={size}
       height={size}
-      viewBox="0 0 48 48"
+      viewBox="0 0 64 64"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       role="img"
       aria-label="eend duck mark"
     >
-      {/* Tail — upward flick at the leftmost point of the body */}
-      <path d="M11 30 L4 22 L13 26 Z" fill={colour} />
-      {/* Body — horizontal oval */}
-      <ellipse cx="23" cy="31" rx="15" ry="9" fill={colour} />
-      {/* Head — smaller circle overlapping top-right of the body */}
-      <circle cx="34" cy="18" r="8" fill={colour} />
-      {/* Beak — right-pointing triangle at the rightmost point of the head */}
-      <path d="M41 15 L47 18 L41 21 Z" fill={colour} />
-      {/* Eye — tiny darker dot */}
-      <circle cx="36" cy="16" r="1.4" fill="#0C1410" />
+      <path d={DUCK_PATH} fill={colour} />
+      <circle cx="51" cy="19.5" r="1.9" fill="#0C1410" />
     </svg>
   );
 }
 
-/** Larger hero variant of the duck mark. */
+/** Larger variant of the duck mark for the hero and feature contexts. */
 export function DuckMarkLarge({
   size = 96,
   colour = "#7EBFB8",

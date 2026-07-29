@@ -18,9 +18,9 @@ export function Apps() {
       </h2>
 
       <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-        {apps.map((app) => (
+        {apps.map((app, i) => (
           <div key={app.id} className="reveal reveal-on-scroll">
-            <AppCard app={app} />
+            <AppCard app={app} index={i} />
           </div>
         ))}
       </div>

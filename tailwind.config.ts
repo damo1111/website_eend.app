@@ -45,11 +45,16 @@ const config: Config = {
             transform: "translate(-50%, -40%) scale(1)",
           },
         },
+        bob: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-7px)" },
+        },
       },
       animation: {
         "pulse-dot": "pulse-dot 2s ease-in-out infinite",
         float: "float 6s ease-in-out infinite",
         marquee: "marquee 40s linear infinite",
+        bob: "bob 5s ease-in-out infinite",
       },
     },
   },

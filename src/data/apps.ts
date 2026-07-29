@@ -1,5 +1,4 @@
 export type AppStatus = "live" | "building";
-export type AppSize = "featured" | "half" | "third";
 
 export interface App {
   id: string;
@@ -10,8 +9,8 @@ export interface App {
   problem: string;
   solution: string;
   status: AppStatus;
-  size: AppSize;
-  screengrab: string | null;
+  video: string | null;
+  poster: string | null;
   accent: string;
 }
 
@@ -29,8 +28,8 @@ export const apps: App[] = [
     solution:
       "AI travel planning with memory. Tracks your hops, plans your next one.",
     status: "live",
-    size: "third",
-    screengrab: null,
+    video: "/videos/pond-flow.webm",
+    poster: "/images/apps/pond-poster.png",
     accent: "#4A6880",
   },
   {
@@ -44,8 +43,8 @@ export const apps: App[] = [
     solution:
       "An AI finance companion that reasons about your money with you.",
     status: "building",
-    size: "third",
-    screengrab: null,
+    video: "/videos/duckworth-flow.webm",
+    poster: "/images/apps/duckworth-poster.png",
     accent: "#806A4A",
   },
   {
@@ -57,8 +56,8 @@ export const apps: App[] = [
     problem: "Market signal is everywhere. Clarity is rare.",
     solution: "AI-powered market prediction and trading signal aggregation.",
     status: "building",
-    size: "third",
-    screengrab: null,
+    video: "/videos/nous-flow.webm",
+    poster: "/images/apps/nous-poster.png",
     accent: "#507840",
   },
 ];
