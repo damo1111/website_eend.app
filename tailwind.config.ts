@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Dark band — the hero only.
         bg: "#0C1410",
         surface: "#121C15",
         border: "#1E2E22",
@@ -19,6 +20,17 @@ const config: Config = {
         "duck-dim": "#3D7870",
         gold: "#D4B483",
         moss: "#4A6B50",
+
+        // Light page — everything below the hero. The teal and gold are
+        // darkened here so text on a pale ground stays legible.
+        page: "#F4F7F5",
+        "page-surface": "#FFFFFF",
+        "page-border": "#D4E2DB",
+        ink: "#0C1410",
+        "ink-muted": "#54675C",
+        accent: "#2E7D74",
+        "accent-dim": "#8FB8B1",
+        "gold-ink": "#8F6A2C",
       },
       fontFamily: {
         display: ["var(--font-syne)", "Syne", "system-ui", "sans-serif"],

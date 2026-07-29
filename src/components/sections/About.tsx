@@ -2,18 +2,18 @@ import { DuckMarkLarge } from "@/components/ui/DuckMark";
 
 export function About() {
   return (
-    <section id="about" className="px-5 py-24 md:px-8 md:py-32">
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-start gap-12 md:grid-cols-[auto_1fr] md:gap-20">
+    <section id="about" className="py-24 md:py-32">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-start gap-12 px-5 md:grid-cols-[auto_1fr] md:gap-20 md:px-8">
         <div className="reveal reveal-on-scroll flex justify-center md:justify-start">
-          <DuckMarkLarge size={96} colour="#3D7870" />
+          <DuckMarkLarge size={96} colour="#8FB8B1" />
         </div>
 
         <div className="reveal reveal-on-scroll text-center md:text-left">
-          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-duck">
+          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
             The studio
           </p>
 
-          <h2 className="mt-4 font-display text-3xl font-extrabold leading-[1.05] tracking-[-0.03em] text-text md:text-[44px]">
+          <h2 className="mt-4 font-display text-3xl font-extrabold leading-[1.05] tracking-[-0.03em] text-ink md:text-[44px]">
             One studio.
             <br />
             Three apps.
@@ -21,7 +21,7 @@ export function About() {
             No committee.
           </h2>
 
-          <div className="mx-auto mt-6 max-w-[560px] space-y-4 font-body text-base leading-[1.8] text-muted md:mx-0">
+          <div className="mx-auto mt-6 max-w-[560px] space-y-4 font-body text-base leading-[1.8] text-ink-muted md:mx-0">
             <p>
               eend is an independent AI product studio in Melbourne, building
               AI-first software for problems worth solving.
@@ -32,7 +32,7 @@ export function About() {
               built and shipped in-house, on its own timeline.
             </p>
             <p>
-              <span className="text-text">eend</span> is Dutch for duck.
+              <span className="text-ink">eend</span> is Dutch for duck.
             </p>
           </div>
         </div>

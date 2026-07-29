@@ -2,7 +2,7 @@ import { apps, type App } from "@/data/apps";
 
 function AppRow({ app }: { app: App }) {
   return (
-    <article className="reveal reveal-on-scroll group relative grid grid-cols-1 gap-4 border-t border-border py-9 md:grid-cols-12 md:gap-8 md:py-11">
+    <article className="reveal reveal-on-scroll group relative grid grid-cols-1 gap-4 border-t border-page-border py-9 md:grid-cols-12 md:gap-8 md:py-11">
       {/* Rule in the app's own colour, drawn on hover */}
       <span
         aria-hidden
@@ -17,19 +17,19 @@ function AppRow({ app }: { app: App }) {
         >
           {app.tag}
         </p>
-        <h3 className="mt-2 font-display text-[30px] font-bold leading-tight tracking-[-0.02em] text-text md:text-[38px]">
+        <h3 className="mt-2 font-display text-[30px] font-bold leading-tight tracking-[-0.02em] text-ink md:text-[38px]">
           {app.name}
         </h3>
-        <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
+        <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink">
           Private beta
         </p>
       </div>
 
       <div className="md:col-span-7 md:col-start-6">
-        <p className="font-body text-[15px] italic leading-relaxed text-muted">
+        <p className="font-body text-[15px] italic leading-relaxed text-ink-muted">
           {app.problem}
         </p>
-        <p className="mt-3 font-body text-lg leading-relaxed text-text">
+        <p className="mt-3 font-body text-lg leading-relaxed text-ink">
           {app.solution}
         </p>
       </div>
@@ -39,20 +39,22 @@ function AppRow({ app }: { app: App }) {
 
 export function Apps() {
   return (
-    <section id="apps" className="mx-auto w-full max-w-6xl px-5 py-24 md:px-8 md:py-32">
-      <p className="reveal reveal-on-scroll font-mono text-[11px] uppercase tracking-[0.22em] text-duck">
-        The apps
-      </p>
-      <h2 className="mt-4 font-display text-4xl font-extrabold leading-[1.02] tracking-[-0.03em] text-text md:text-[56px]">
-        <span className="reveal reveal-on-scroll block">Three problems.</span>
-        <span className="reveal reveal-on-scroll block">Three apps.</span>
-        <span className="reveal reveal-on-scroll block">All AI.</span>
-      </h2>
+    <section id="apps" className="py-24 md:py-32">
+      <div className="mx-auto w-full max-w-6xl px-5 md:px-8">
+        <p className="reveal reveal-on-scroll font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+          The apps
+        </p>
+        <h2 className="mt-4 font-display text-4xl font-extrabold leading-[1.02] tracking-[-0.03em] text-ink md:text-[56px]">
+          <span className="reveal reveal-on-scroll block">Three problems.</span>
+          <span className="reveal reveal-on-scroll block">Three apps.</span>
+          <span className="reveal reveal-on-scroll block">All AI.</span>
+        </h2>
 
-      <div className="mt-14 border-b border-border">
-        {apps.map((app) => (
-          <AppRow key={app.id} app={app} />
-        ))}
+        <div className="mt-14 border-b border-page-border">
+          {apps.map((app) => (
+            <AppRow key={app.id} app={app} />
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -3,7 +3,11 @@ import { PhoneFlotilla } from "@/components/ui/PhoneFlotilla";
 
 export function Hero() {
   return (
-    <section id="top" className="relative w-full overflow-hidden">
+    // The one dark band on the page — the rest is light.
+    <section
+      id="top"
+      className="relative w-full overflow-hidden bg-bg text-text"
+    >
       <Spotlight className="-top-32 left-1/4 md:-top-24 md:left-1/3" />
 
       <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 px-5 pb-24 pt-36 md:grid-cols-12 md:gap-8 md:px-8 md:pb-32 md:pt-44">

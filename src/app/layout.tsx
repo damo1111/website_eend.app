@@ -55,7 +55,7 @@ export default function RootLayout({
       lang="en"
       className={`${syne.variable} ${dmSans.variable} ${dmMono.variable}`}
     >
-      <body className="bg-bg text-text font-body antialiased">{children}</body>
+      <body className="bg-page text-ink font-body antialiased">{children}</body>
     </html>
   );
 }
