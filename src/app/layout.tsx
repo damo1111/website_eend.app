@@ -28,11 +28,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://eend.app"),
   title: "eend — AI product studio",
   description:
-    "An indie AI product studio building apps across eldercare, finance, travel, trading and health.",
+    "An indie AI product studio. Three AI apps in private beta across travel, finance and trading.",
   openGraph: {
     title: "eend",
     description:
-      "AI apps built by a senior product leader with 20 years at scale.",
+      "An indie AI product studio. Three AI apps in private beta across travel, finance and trading.",
     url: "https://eend.app",
     siteName: "eend",
     type: "website",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "eend — AI product studio",
     description:
-      "AI apps built by a senior product leader with 20 years at scale.",
+      "An indie AI product studio. Three AI apps in private beta across travel, finance and trading.",
   },
 };
 

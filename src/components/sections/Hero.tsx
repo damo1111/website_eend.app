@@ -1,81 +1,60 @@
-import { DuckMarkLarge } from "@/components/ui/DuckMark";
 import { Spotlight } from "@/components/ui/Spotlight";
-import { Marquee } from "@/components/ui/Marquee";
-
-const MARQUEE_TEXT =
-  "Pond Hopping — Travel AI · DuckWorth — Finance AI · Nous — Trading AI · eend is Dutch for duck · ";
+import { PhoneFlotilla } from "@/components/ui/PhoneFlotilla";
 
 export function Hero() {
   return (
-    <section
-      id="top"
-      className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden"
-    >
-      <Spotlight className="-top-40 left-0 md:-top-20 md:left-40" />
+    <section id="top" className="relative w-full overflow-hidden">
+      <Spotlight className="-top-32 left-1/4 md:-top-24 md:left-1/3" />
 
-      <div className="relative z-10 mx-auto w-full max-w-5xl px-5 py-32 md:px-8">
-        <div className="reveal mb-8" style={{ animationDelay: "0.05s" }}>
-          <DuckMarkLarge size={120} className="animate-float" />
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 px-5 pb-24 pt-36 md:grid-cols-12 md:gap-8 md:px-8 md:pb-32 md:pt-44">
+        <div className="md:col-span-5">
+          <p className="reveal font-mono text-[11px] uppercase tracking-[0.22em] text-duck">
+            Indie AI product studio · Melbourne
+          </p>
+
+          <h1
+            className="reveal mt-5 font-display text-[64px] font-extrabold leading-[0.85] tracking-[-0.04em] text-text md:text-[88px]"
+            style={{ animationDelay: "0.1s" }}
+          >
+            eend<span className="text-duck">.</span>
+          </h1>
+
+          <p
+            className="reveal mt-6 max-w-[420px] font-body text-lg leading-[1.6] text-muted"
+            style={{ animationDelay: "0.18s" }}
+          >
+            Three AI apps in private beta. Travel that remembers, money that
+            reasons, markets made clear.
+          </p>
+
+          <div
+            className="reveal mt-9 flex flex-wrap items-center gap-6"
+            style={{ animationDelay: "0.26s" }}
+          >
+            <a
+              href="mailto:info@eend.app?subject=Beta%20access"
+              className="inline-flex items-center rounded border border-border-light px-6 py-3 font-mono text-[13px] text-text transition-colors duration-300 hover:border-duck hover:text-duck"
+            >
+              Request access
+            </a>
+            <a
+              href="#apps"
+              className="group font-mono text-[13px] text-muted transition-colors duration-300 hover:text-duck"
+            >
+              See the apps{" "}
+              <span className="inline-block transition-transform duration-300 group-hover:translate-y-0.5">
+                ↓
+              </span>
+            </a>
+          </div>
         </div>
-
-        <p
-          className="reveal font-mono text-[11px] uppercase tracking-[0.2em] text-duck"
-          style={{ animationDelay: "0.15s" }}
-        >
-          Indie AI product studio · Melbourne
-        </p>
-
-        <h1
-          className="reveal mt-6 font-display text-[64px] font-bold leading-[0.82] text-text md:text-[104px]"
-          style={{ animationDelay: "0.25s" }}
-        >
-          eend<span className="text-duck">.</span>
-        </h1>
-
-        {/* Signature: eend as a Dutch dictionary headword */}
-        <p
-          className="reveal mt-4 font-mono text-[13px] text-muted"
-          style={{ animationDelay: "0.33s" }}
-        >
-          <span className="text-duck">/eːnt/</span>
-          <span className="mx-2.5 text-border-light">·</span>
-          <span className="italic">noun</span>
-          <span className="mx-2.5 text-border-light">·</span>
-          Dutch for <span className="text-text">duck</span>
-        </p>
-
-        <p
-          className="reveal mt-7 max-w-[480px] font-body text-lg leading-[1.7] text-muted"
-          style={{ animationDelay: "0.42s" }}
-        >
-          Three apps. Three problems that bothered me. AI-first, built alone,
-          shipped fast.
-        </p>
 
         <div
-          className="reveal mt-10 flex flex-wrap items-center gap-6"
-          style={{ animationDelay: "0.5s" }}
+          className="reveal md:col-span-7"
+          style={{ animationDelay: "0.34s" }}
         >
-          <a
-            href="#apps"
-            className="group inline-flex items-center gap-2 rounded border border-border px-6 py-3 font-mono text-sm text-text transition-colors duration-300 hover:border-duck hover:text-duck"
-          >
-            See the apps
-            <span className="transition-transform duration-300 group-hover:translate-y-0.5">
-              ↓
-            </span>
-          </a>
-          <a
-            href="mailto:david@moritznet.com"
-            className="font-mono text-sm text-muted underline-offset-4 transition-colors duration-300 hover:text-duck hover:underline"
-          >
-            david@moritznet.com
-          </a>
+          <PhoneFlotilla />
         </div>
-      </div>
-
-      <div className="absolute bottom-8 left-0 z-10 w-full">
-        <Marquee text={MARQUEE_TEXT} />
       </div>
     </section>
   );

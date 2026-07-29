@@ -53,3 +53,13 @@ body {
     }
   }
 }
+
+/* Ambient motion is decorative — switch it off when motion is unwelcome. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-bob,
+  .animate-float,
+  .animate-marquee,
+  .animate-pulse-dot {
+    animation: none !important;
+  }
+}

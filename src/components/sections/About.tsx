@@ -3,54 +3,37 @@ import { DuckMarkLarge } from "@/components/ui/DuckMark";
 export function About() {
   return (
     <section id="about" className="px-5 py-24 md:px-8 md:py-32">
-      <div className="mx-auto grid w-full max-w-5xl grid-cols-1 items-start gap-12 md:grid-cols-[auto_1fr] md:gap-16">
-        {/* Decorative duck mark */}
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-start gap-12 md:grid-cols-[auto_1fr] md:gap-20">
         <div className="reveal reveal-on-scroll flex justify-center md:justify-start">
-          <DuckMarkLarge size={96} colour="#6B8070" />
+          <DuckMarkLarge size={96} colour="#3D7870" />
         </div>
 
         <div className="reveal reveal-on-scroll text-center md:text-left">
-          <p className="font-mono text-[10px] tracking-[0.2em] text-duck">
-            THE BUILDER
+          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-duck">
+            The studio
           </p>
 
-          <h2 className="mt-4 font-display text-3xl font-bold leading-[1.1] text-text md:text-[44px]">
-            One person.
+          <h2 className="mt-4 font-display text-3xl font-extrabold leading-[1.05] tracking-[-0.03em] text-text md:text-[44px]">
+            One studio.
             <br />
-            Twenty years.
+            Three apps.
             <br />
-            Three apps and counting.
+            No committee.
           </h2>
 
           <div className="mx-auto mt-6 max-w-[560px] space-y-4 font-body text-base leading-[1.8] text-muted md:mx-0">
             <p>
-              I&apos;m David Moritz — a senior product leader who spent 20 years
-              shipping at scale across JET, IAG Loyalty, REA Group, Zoopla,
-              Tesco, and Amazon.
+              eend is an independent AI product studio in Melbourne, building
+              AI-first software for problems worth solving.
             </p>
             <p>
-              Alongside eend, I run Mnemo — an ambient AI startup — and NOT THAT
-              CVNVRD, a directional fashion label. The duck connects them all.
+              The focus is AI that reasons rather than records — apps that
+              understand context, not just store it. Everything is designed,
+              built and shipped in-house, on its own timeline.
             </p>
-          </div>
-
-          <div className="mt-8 flex flex-col items-center gap-3 md:items-start">
-            <a
-              href="https://davidmoritz.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-xs text-duck transition-opacity hover:opacity-70"
-            >
-              → Full story at davidmoritz.com
-            </a>
-            <a
-              href="https://mnemolabs.co"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-xs text-muted transition-colors hover:text-duck"
-            >
-              → Mnemo at mnemolabs.co
-            </a>
+            <p>
+              <span className="text-text">eend</span> is Dutch for duck.
+            </p>
           </div>
         </div>
       </div>
