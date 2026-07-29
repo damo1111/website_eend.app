@@ -11,6 +11,15 @@ export interface App {
   status: AppStatus;
   video: string | null;
   poster: string | null;
+  /** Native pixel size of the recording. */
+  nativeW: number;
+  nativeH: number;
+  /**
+   * Pixels to clip off the top of the recording, in native pixels — the phone
+   * status bar, Android screen-recording indicator, and browser URL bar.
+   * Clipped at 1:1 scale, so the app itself is never magnified.
+   */
+  cropTop: number;
   accent: string;
 }
 
@@ -30,6 +39,9 @@ export const apps: App[] = [
     status: "live",
     video: "/videos/pond-flow.webm",
     poster: "/images/apps/pond-poster.png",
+    nativeW: 300,
+    nativeH: 666,
+    cropTop: 32,
     accent: "#4A6880",
   },
   {
@@ -45,6 +57,9 @@ export const apps: App[] = [
     status: "building",
     video: "/videos/duckworth-flow.webm",
     poster: "/images/apps/duckworth-poster.png",
+    nativeW: 300,
+    nativeH: 666,
+    cropTop: 88,
     accent: "#806A4A",
   },
   {
@@ -58,6 +73,9 @@ export const apps: App[] = [
     status: "building",
     video: "/videos/nous-flow.webm",
     poster: "/images/apps/nous-poster.png",
+    nativeW: 380,
+    nativeH: 620,
+    cropTop: 0,
     accent: "#507840",
   },
 ];

@@ -1,4 +1,4 @@
-import { apps } from "@/data/apps";
+import { apps, type App } from "@/data/apps";
 import { cn } from "@/lib/utils";
 
 /** Fixed dark phone chassis — a device, not a themed surface. */
@@ -11,9 +11,46 @@ function PhoneFrame({ children }: { children: React.ReactNode }) {
 }
 
 /**
+ * The recording, with only its top chrome clipped away — phone status bar,
+ * Android screen-recording indicator, browser URL bar. The video renders at
+ * its natural scale for the frame width (no magnification): the window is
+ * sized to the *cropped* aspect ratio and the video is shifted up by exactly
+ * the crop, as a percentage of its own height, so nothing is lost off the
+ * bottom and the app's own tab bar stays in view.
+ */
+function Screen({ app }: { app: App }) {
+  const shift = (app.cropTop / app.nativeH) * 100;
+
+  return (
+    <div
+      className="relative w-[96px] overflow-hidden md:w-[150px]"
+      style={{ aspectRatio: `${app.nativeW} / ${app.nativeH - app.cropTop}` }}
+    >
+      {app.video ? (
+        // eslint-disable-next-line jsx-a11y/media-has-caption
+        <video
+          src={app.video}
+          poster={app.poster ?? undefined}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          aria-label={`${app.name} preview`}
+          className="block h-auto w-full"
+          style={{ transform: `translateY(-${shift.toFixed(3)}%)` }}
+        />
+      ) : (
+        <div className="h-full w-full bg-surface" />
+      )}
+    </div>
+  );
+}
+
+/**
  * The signature element: the three apps running, staggered on a diagonal and
  * bobbing out of phase — a small flotilla. Leads the page with the product
- * itself rather than a logo, and carries the duck idea structurally.
+ * itself rather than a logo.
  */
 const LAYOUT = [
   { offset: 0, rotate: -7, z: 10, delay: "0s" },
@@ -37,24 +74,7 @@ export function PhoneFlotilla() {
           >
             <div className="animate-bob" style={{ animationDelay: l.delay }}>
               <PhoneFrame>
-                {app.video ? (
-                  // Scaled and bottom-anchored so the recording's browser URL
-                  // bar is cropped out — reads as a native app.
-                  // eslint-disable-next-line jsx-a11y/media-has-caption
-                  <video
-                    src={app.video}
-                    poster={app.poster ?? undefined}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
-                    aria-label={`${app.name} preview`}
-                    className="h-[186px] w-[96px] origin-bottom scale-[1.14] object-cover object-bottom md:h-[292px] md:w-[150px]"
-                  />
-                ) : (
-                  <div className="h-[186px] w-[96px] bg-surface md:h-[292px] md:w-[150px]" />
-                )}
+                <Screen app={app} />
               </PhoneFrame>
             </div>
           </div>
