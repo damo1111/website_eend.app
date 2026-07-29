@@ -14,24 +14,12 @@ const MIN_HEIGHT: Record<App["size"], string> = {
 };
 
 export default function AppCard({ app }: { app: App }) {
-  const {
-    name,
-    url,
-    studio,
-    tag,
-    problem,
-    solution,
-    status,
-    subdomain,
-    screengrab,
-    accent,
-    size,
-  } = app;
+  const { name, studio, tag, problem, solution, screengrab, accent, size } =
+    app;
 
   // Fall back to the accent gradient if a screengrab is absent or fails to load.
   const [imageOk, setImageOk] = useState(Boolean(screengrab));
   const showImage = Boolean(screengrab) && imageOk;
-  const live = status === "live";
 
   return (
     <motion.div
@@ -41,13 +29,10 @@ export default function AppCard({ app }: { app: App }) {
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className="group h-full"
     >
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
+      <div
         className={cn(
           "relative flex h-full flex-col justify-end overflow-hidden rounded border border-border bg-surface p-7",
-          "transition-all duration-300 ease-out hover:-translate-y-1 hover:border-duck",
+          "transition-all duration-300 ease-out hover:-translate-y-1 hover:border-duck-dim",
           MIN_HEIGHT[size],
         )}
       >
@@ -73,26 +58,18 @@ export default function AppCard({ app }: { app: App }) {
           />
         )}
 
-        {/* Arrow — appears on hover */}
-        <span
-          className="absolute right-6 top-6 z-10 translate-y-1 font-mono text-lg text-duck opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
-          aria-hidden="true"
-        >
-          ↗
-        </span>
-
-        {/* Studio + status dot, top-left */}
+        {/* Studio, top-left */}
         <div className="absolute left-6 top-6 z-10 flex items-center gap-2">
-          <span
-            className={cn(
-              "h-1.5 w-1.5 rounded-full",
-              live ? "animate-pulse-dot bg-[#4CCFB4]" : "bg-gold",
-            )}
-          />
+          <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-gold" />
           <span className="font-mono text-[10px] uppercase tracking-widest text-muted">
             {studio}
           </span>
         </div>
+
+        {/* Private beta — top-right */}
+        <span className="absolute right-6 top-6 z-10 rounded-full border border-gold/40 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-gold">
+          Private beta
+        </span>
 
         {/* Content */}
         <div className="relative z-10">
@@ -111,10 +88,9 @@ export default function AppCard({ app }: { app: App }) {
             <p className="mt-2 font-body text-sm leading-relaxed text-text">
               {solution}
             </p>
-            <p className="mt-3 font-mono text-xs text-duck">{subdomain} ↗</p>
           </div>
         </div>
-      </a>
+      </div>
     </motion.div>
   );
 }
