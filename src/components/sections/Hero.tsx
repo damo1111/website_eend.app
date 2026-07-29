@@ -26,24 +26,35 @@ export function Hero() {
         </p>
 
         <h1
-          className="reveal mt-6 font-display text-[64px] font-bold leading-[0.9] text-text md:text-[104px]"
+          className="reveal mt-6 font-display text-[64px] font-bold leading-[0.82] text-text md:text-[104px]"
           style={{ animationDelay: "0.25s" }}
         >
-          eend.
+          eend<span className="text-duck">.</span>
         </h1>
 
+        {/* Signature: eend as a Dutch dictionary headword */}
         <p
-          className="reveal mt-6 max-w-[480px] font-body text-lg leading-[1.7] text-muted"
-          style={{ animationDelay: "0.35s" }}
+          className="reveal mt-4 font-mono text-[13px] text-muted"
+          style={{ animationDelay: "0.33s" }}
+        >
+          <span className="text-duck">/eːnt/</span>
+          <span className="mx-2.5 text-border-light">·</span>
+          <span className="italic">noun</span>
+          <span className="mx-2.5 text-border-light">·</span>
+          Dutch for <span className="text-text">duck</span>
+        </p>
+
+        <p
+          className="reveal mt-7 max-w-[480px] font-body text-lg leading-[1.7] text-muted"
+          style={{ animationDelay: "0.42s" }}
         >
           Three apps. Three problems that bothered me. AI-first, built alone,
-          shipped fast. <span className="text-text">eend</span> is Dutch for
-          duck.
+          shipped fast.
         </p>
 
         <div
           className="reveal mt-10 flex flex-wrap items-center gap-6"
-          style={{ animationDelay: "0.45s" }}
+          style={{ animationDelay: "0.5s" }}
         >
           <a
             href="#apps"
