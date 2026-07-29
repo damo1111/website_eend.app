@@ -44,12 +44,12 @@ export function About() {
               → Full story at davidmoritz.com
             </a>
             <a
-              href="https://mnemo.systems"
+              href="https://mnemolabs.co"
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-xs text-muted transition-colors hover:text-duck"
             >
-              → Mnemo at mnemo.systems
+              → Mnemo at mnemolabs.co
             </a>
           </div>
         </div>

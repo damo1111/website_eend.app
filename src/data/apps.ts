@@ -16,7 +16,7 @@ export interface App {
 }
 
 // The three eend apps. (Ministry of Susan and Davanity are Mnemo products and
-// live at mnemo.systems — they are not part of the eend studio.)
+// live at mnemolabs.co — they are not part of the eend studio.)
 export const apps: App[] = [
   {
     id: "pond-hopping",

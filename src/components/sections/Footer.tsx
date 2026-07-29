@@ -1,5 +1,5 @@
 const RIGHT_LINKS = [
-  { label: "mnemo.systems", href: "https://mnemo.systems" },
+  { label: "mnemolabs.co", href: "https://mnemolabs.co" },
   { label: "davidmoritz.com", href: "https://davidmoritz.com" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/davidmoritz" },
 ];
