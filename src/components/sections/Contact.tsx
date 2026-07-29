@@ -1,6 +1,6 @@
 export function Contact() {
   return (
-    <section id="contact" className="py-24 md:py-32">
+    <section id="contact" className="py-16 md:py-20">
       <div className="reveal mx-auto w-full max-w-6xl px-5 md:px-8">
         <h2 className="font-display text-4xl font-extrabold leading-tight tracking-[-0.03em] text-ink md:text-[52px]">
           Get in touch.
@@ -19,7 +19,7 @@ export function Contact() {
           </span>
         </a>
 
-        <p className="mt-10 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted">
+        <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted">
           Melbourne · GMT+10
         </p>
       </div>

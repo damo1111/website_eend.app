@@ -2,8 +2,8 @@ import { DuckMarkLarge } from "@/components/ui/DuckMark";
 
 export function About() {
   return (
-    <section id="about" className="py-24 md:py-32">
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-start gap-12 px-5 md:grid-cols-[auto_1fr] md:gap-20 md:px-8">
+    <section id="about" className="py-16 md:py-20">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-start gap-10 px-5 md:grid-cols-[auto_1fr] md:gap-16 md:px-8">
         <div className="reveal reveal-on-scroll flex justify-center md:justify-start">
           <DuckMarkLarge size={96} colour="#8FB8B1" />
         </div>

@@ -2,7 +2,7 @@ import { apps, type App } from "@/data/apps";
 
 function AppRow({ app }: { app: App }) {
   return (
-    <article className="reveal reveal-on-scroll group relative grid grid-cols-1 gap-4 border-t border-page-border py-9 md:grid-cols-12 md:gap-8 md:py-11">
+    <article className="reveal reveal-on-scroll group relative grid grid-cols-1 gap-4 border-t border-page-border py-7 md:grid-cols-12 md:gap-8 md:py-9">
       {/* Rule in the app's own colour, drawn on hover */}
       <span
         aria-hidden
@@ -39,7 +39,7 @@ function AppRow({ app }: { app: App }) {
 
 export function Apps() {
   return (
-    <section id="apps" className="py-24 md:py-32">
+    <section id="apps" className="py-16 md:py-24">
       <div className="mx-auto w-full max-w-6xl px-5 md:px-8">
         <p className="reveal reveal-on-scroll font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
           The apps
@@ -50,7 +50,7 @@ export function Apps() {
           <span className="reveal reveal-on-scroll block">All AI.</span>
         </h2>
 
-        <div className="mt-14 border-b border-page-border">
+        <div className="mt-10 border-b border-page-border">
           {apps.map((app) => (
             <AppRow key={app.id} app={app} />
           ))}

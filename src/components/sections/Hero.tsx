@@ -10,7 +10,7 @@ export function Hero() {
     >
       <Spotlight className="-top-32 left-1/4 md:-top-24 md:left-1/3" />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 px-5 pb-24 pt-36 md:grid-cols-12 md:gap-8 md:px-8 md:pb-32 md:pt-44">
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-14 px-5 pb-20 pt-28 md:grid-cols-12 md:gap-8 md:px-8 md:pb-24 md:pt-36">
         <div className="md:col-span-5">
           <p className="reveal font-mono text-[11px] uppercase tracking-[0.22em] text-duck">
             Indie AI product studio · Melbourne
