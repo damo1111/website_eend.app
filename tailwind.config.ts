@@ -33,7 +33,12 @@ const config: Config = {
         "gold-ink": "#8F6A2C",
       },
       fontFamily: {
-        display: ["var(--font-syne)", "Syne", "system-ui", "sans-serif"],
+        display: [
+          "var(--font-schibsted-grotesk)",
+          "Schibsted Grotesk",
+          "system-ui",
+          "sans-serif",
+        ],
         body: ["var(--font-dm-sans)", "DM Sans", "system-ui", "sans-serif"],
         mono: ["var(--font-dm-mono)", "DM Mono", "monospace"],
       },

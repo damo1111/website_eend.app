@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans, DM_Mono } from "next/font/google";
+import { Schibsted_Grotesk, DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
+const schibstedGrotesk = Schibsted_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-syne",
+  weight: ["700", "800"],
+  variable: "--font-schibsted-grotesk",
   display: "swap",
 });
 
@@ -53,7 +53,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${dmSans.variable} ${dmMono.variable}`}
+      className={`${schibstedGrotesk.variable} ${dmSans.variable} ${dmMono.variable}`}
     >
       <body className="bg-page text-ink font-body antialiased">{children}</body>
     </html>
