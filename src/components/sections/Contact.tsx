@@ -1,3 +1,5 @@
+import { WaitlistForm } from "@/components/ui/WaitlistForm";
+
 export function Contact() {
   return (
     <section id="contact" className="py-16 md:py-20">
@@ -10,12 +12,14 @@ export function Contact() {
           Beta access, feedback, or a good idea.
         </p>
 
+        <WaitlistForm />
+
         <a
           href="mailto:info@eend.app"
-          className="group mt-6 inline-block font-mono text-base text-accent"
+          className="group mt-6 inline-block font-mono text-sm text-accent"
         >
           <span className="bg-gradient-to-r from-accent to-accent bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-1 transition-[background-size] duration-300 group-hover:bg-[length:100%_1px]">
-            info@eend.app
+            or email info@eend.app directly
           </span>
         </a>
 

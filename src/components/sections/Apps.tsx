@@ -32,6 +32,21 @@ function AppRow({ app }: { app: App }) {
         <p className="mt-3 font-body text-lg leading-relaxed text-ink">
           {app.solution}
         </p>
+        <ul className="mt-4 space-y-1.5">
+          {app.bullets.map((bullet) => (
+            <li
+              key={bullet}
+              className="flex items-baseline gap-2 font-body text-[14px] text-ink-muted"
+            >
+              <span
+                aria-hidden
+                className="h-1 w-1 shrink-0 translate-y-[-2px] rounded-full"
+                style={{ background: app.accent }}
+              />
+              {bullet}
+            </li>
+          ))}
+        </ul>
       </div>
     </article>
   );

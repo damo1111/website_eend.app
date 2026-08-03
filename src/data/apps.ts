@@ -21,6 +21,8 @@ export interface App {
    */
   cropTop: number;
   accent: string;
+  /** Three concrete things the app does, not marketing claims. */
+  bullets: string[];
 }
 
 // The three eend apps. (Ministry of Susan and Davanity are Mnemo products and
@@ -43,6 +45,11 @@ export const apps: App[] = [
     nativeH: 666,
     cropTop: 32,
     accent: "#4A6880",
+    bullets: [
+      "Visualises every trip on a 3D globe",
+      "Tracks flight status and trip stats in one place",
+      "Organises journal entries and photos per trip",
+    ],
   },
   {
     id: "duckworth",
@@ -61,6 +68,11 @@ export const apps: App[] = [
     nativeH: 666,
     cropTop: 88,
     accent: "#806A4A",
+    bullets: [
+      "Splits and tracks shared expenses automatically",
+      "Breaks down monthly spending by category",
+      "Surfaces what's owed and recurring subscriptions",
+    ],
   },
   {
     id: "nous",
@@ -77,5 +89,10 @@ export const apps: App[] = [
     nativeH: 620,
     cropTop: 0,
     accent: "#507840",
+    bullets: [
+      "A daily market read synthesised from signal",
+      "Tracks prediction accuracy against a baseline",
+      "Shows the weights behind each call",
+    ],
   },
 ];

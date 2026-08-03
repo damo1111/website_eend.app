@@ -36,7 +36,7 @@ export function Hero() {
             style={{ animationDelay: "0.26s" }}
           >
             <a
-              href="mailto:info@eend.app?subject=Beta%20access"
+              href="#contact"
               className="inline-flex items-center rounded border border-border-light px-6 py-3 font-mono text-[13px] text-text transition-colors duration-300 hover:border-duck hover:text-duck"
             >
               Request access
