@@ -52,50 +52,60 @@ export function WaitlistForm() {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-start"
-    >
-      <input
-        type="text"
-        name="_honey"
-        tabIndex={-1}
-        autoComplete="off"
-        aria-hidden
-        className="hidden"
-      />
-      <input type="hidden" name="_subject" value="eend beta access request" />
-      <input type="hidden" name="_template" value="table" />
-
-      <label htmlFor="waitlist-email" className="sr-only">
-        Email address
-      </label>
-      <input
-        id="waitlist-email"
-        type="email"
-        name="email"
-        required
-        placeholder="you@wherever.com"
-        className="w-full max-w-xs rounded border border-page-border bg-page-surface px-4 py-3 font-body text-base text-ink placeholder:text-ink-muted/60 focus:border-accent focus:outline-none sm:w-auto"
-      />
-
-      <button
-        type="submit"
-        disabled={status === "submitting"}
-        className="inline-flex items-center justify-center rounded border border-ink px-6 py-3 font-mono text-[13px] text-ink transition-colors duration-300 hover:border-accent hover:text-accent disabled:opacity-50"
+    <div>
+      <form
+        onSubmit={handleSubmit}
+        className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-start"
       >
-        {status === "submitting" ? "Sending…" : "Request access"}
-      </button>
+        <input
+          type="text"
+          name="_honey"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden
+          className="hidden"
+        />
+        <input
+          type="hidden"
+          name="_subject"
+          value="eend beta access request"
+        />
+        <input type="hidden" name="_template" value="table" />
 
-      {status === "error" && (
-        <p className="w-full font-mono text-xs text-gold-ink sm:basis-full">
-          Something went wrong — email{" "}
-          <a href="mailto:info@eend.app" className="underline">
-            info@eend.app
-          </a>{" "}
-          directly instead.
-        </p>
-      )}
-    </form>
+        <label htmlFor="waitlist-email" className="sr-only">
+          Email address
+        </label>
+        <input
+          id="waitlist-email"
+          type="email"
+          name="email"
+          required
+          placeholder="you@wherever.com"
+          className="w-full max-w-xs rounded border border-page-border bg-page-surface px-4 py-3 font-body text-base text-ink placeholder:text-ink-muted/60 focus:border-accent focus:outline-none sm:w-auto"
+        />
+
+        <button
+          type="submit"
+          disabled={status === "submitting"}
+          className="inline-flex items-center justify-center rounded border border-ink px-6 py-3 font-mono text-[13px] text-ink transition-colors duration-300 hover:border-accent hover:text-accent disabled:opacity-50"
+        >
+          {status === "submitting" ? "Sending…" : "Request access"}
+        </button>
+
+        {status === "error" && (
+          <p className="w-full font-mono text-xs text-gold-ink sm:basis-full">
+            Something went wrong — email{" "}
+            <a href="mailto:info@eend.app" className="underline">
+              info@eend.app
+            </a>{" "}
+            directly instead.
+          </p>
+        )}
+      </form>
+
+      <p className="mt-3 font-body text-xs text-ink-muted">
+        Only used to email you about access — no spam, nothing shared.
+      </p>
+    </div>
   );
 }
